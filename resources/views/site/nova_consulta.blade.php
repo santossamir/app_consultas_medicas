@@ -18,10 +18,10 @@
             <div class="row">
                 <div class="col-sm-3 menu">
                     <ul class="list-group">
-                        <li class="list-group-item"><a href="/home">Especialidades</a></li>
+                        <li class="list-group-item"><a href="/">Especialidades</a></li>
                         <li class="list-group-item"><a href="/medicos">Nossos médicos</a></li>
                         <li class="list-group-item"><a href="/pacientes">Pacientes</a></li>
-                        <li class="list-group-item active"><a href="">Nova consulta</a></li>
+                        <li class="list-group-item active"><a href="/nova-consulta">Nova consulta</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9">
@@ -32,20 +32,20 @@
                                     Nova consulta
                                 </h3>
                                 <hr />
-                                <form method="post" action="{{empty($categoria) ? '/categorias/store' : '/categorias/update/'.$categoria->id}}">
+                                <form method="post" action="/nova-consulta/create">
                                     @csrf
                                     <div class="form-group">
                                         <label class="text-secondary">Dados do médico:</label>
-                                        <input type="text" name="nome_categoria" value="" class="form-control" placeholder="Nome do paciente">
-                                        <input type="text" name="nome_categoria" value="" class="form-control" placeholder="Nome do médico">
-                                        <input type="text" name="nome_categoria" value="" class="form-control" placeholder="Data/hora da consulta">
+                                        <input type="text" name="nome_paciente" value="" class="form-control" placeholder="Nome do paciente">
+                                        <input type="text" name="nome_medico" value="" class="form-control" placeholder="Nome do médico">
+                                        <input type="text" name="data_hora" value="" class="form-control" placeholder="Data/hora da consulta">
                                     </div>
                                     <input type="submit" class="btn btn-success" value="Cadastrar">
                                 </form>
                             </div>
                         </div>
                     </div>
-                </div>           
+                </div>
                 <div class="col-sm-9 tabela">
                     <div class="container pagina">
                         <div class="row">
@@ -74,7 +74,7 @@
                                             <td><a class="fas fa-trash-alt fa-lg text-danger" href=""></a></td>
                                             <td><a class="fas fa-edit fa-lg text-info"  href=""></a></td>
                                         </tr>
-                                    </tbody>	
+                                    </tbody>
                                 </table>
                             </div>
                         </div>

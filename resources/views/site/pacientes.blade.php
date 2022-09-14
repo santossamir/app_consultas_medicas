@@ -18,10 +18,10 @@
             <div class="row">
                 <div class="col-sm-3 menu">
                     <ul class="list-group">
-                        <li class="list-group-item"><a href="/home">Especialidades</a></li>
+                        <li class="list-group-item"><a href="/">Especialidades</a></li>
                         <li class="list-group-item"><a href="/medicos">Nossos médicos</a></li>
                         <li class="list-group-item active"><a href="/pacientes">Pacientes</a></li>
-                        <li class="list-group-item"><a href="nova-consulta">Nova consulta</a></li>
+                        <li class="list-group-item"><a href="/nova-consulta">Nova consulta</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9">
@@ -32,25 +32,25 @@
                                     Novo paciente
                                 </h3>
                                 <hr />
-                                <form method="post" action="{{empty($categoria) ? '/categorias/store' : '/categorias/update/'.$categoria->id}}">
+                                <form method="post" action="/pacientes/create">
                                     @csrf
                                     <div class="form-group">
                                         <label class="text-secondary">Dados do paciente:</label>
-                                        <input type="text" name="nome_categoria" value="" class="form-control" placeholder="Nome do paciente">
-                                        <input type="text" name="nome_categoria" value="" class="form-control" placeholder="CPF">
-                                        <input type="text" name="nome_categoria" value="" class="form-control" placeholder="Data">
-                                        <input type="text" name="nome_categoria" value="" class="form-control" placeholder="Contato">
-                                        <input type="text" name="nome_categoria" value="" class="form-control" placeholder="E-mail">
-                                        <input type="text" name="nome_categoria" value="" class="form-control" placeholder="CEP">
-                                        <input type="text" name="nome_categoria" value="" class="form-control" placeholder="Endereço">
-                                        <input type="text" name="nome_categoria" value="" class="form-control" placeholder="nº">
+                                        <input type="text" name="nome_paciente" value="" class="form-control" placeholder="Nome do paciente">
+                                        <input type="text" name="cpf" value="" class="form-control" placeholder="CPF">
+                                        <input type="text" name="nascimento" value="" class="form-control" placeholder="Data de nascimento">
+                                        <input type="text" name="contato" value="" class="form-control" placeholder="Contato">
+                                        <input type="text" name="email" value="" class="form-control" placeholder="E-mail">
+                                        <input type="text" name="cep" value="" class="form-control" placeholder="CEP">
+                                        <input type="text" name="endereco" value="" class="form-control" placeholder="Endereço">
+                                        <input type="text" name="numero" value="" class="form-control" placeholder="nº">
                                     </div>
                                     <input type="submit" class="btn btn-success" value="Cadastrar">
                                 </form>
                             </div>
                         </div>
                     </div>
-                </div>           
+                </div>
                 <div class="col-sm-9 tabela">
                     <div class="container pagina">
                         <div class="row">
@@ -83,7 +83,7 @@
                                             <td><a class="fas fa-trash-alt fa-lg text-danger" href=""></a></td>
                                             <td><a class="fas fa-edit fa-lg text-info"  href=""></a></td>
                                         </tr>
-                                    </tbody>	
+                                    </tbody>
                                 </table>
                             </div>
                         </div>

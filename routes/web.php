@@ -1,20 +1,18 @@
 <?php
 
+use App\Http\Controllers\EspecialidadeController;
+use App\Models\Especialidade;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/home', function () {
-    return view('site.home');
-});
+Route::get('/', 'EspecialidadeController@index')->name('index');
+Route::post('/especialidade/create', 'EspecialidadeController@create');
 
-Route::get('/medicos', function () {
-    return view('site.medicos');
-});
+Route::get('/medicos', 'MedicoController@index')->name('index/medicos');
+Route::post('/medicos/create', 'MedicoController@create');
 
-Route::get('/pacientes', function () {
-    return view('site.pacientes');
-});
+Route::get('/pacientes', 'PacienteController@index');
+Route::post('/pacientes/create', 'PacienteController@create');
 
-Route::get('/nova-consulta', function () {
-    return view('site.nova_consulta');
-});
+Route::get('/nova-consulta', 'NovaConsultaController@index');
+Route::post('/nova-consulta/create', 'NovaConsultaController@create');

@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col-sm-3 menu">
                     <ul class="list-group">
-                        <li class="list-group-item active"><a href="/home">Especialidades</a></li>
+                        <li class="list-group-item active"><a href="/">Especialidades</a></li>
                         <li class="list-group-item"><a href="/medicos">Nossos médicos</a></li>
                         <li class="list-group-item"><a href="/pacientes">Pacientes</a></li>
                         <li class="list-group-item"><a href="/nova-consulta">Nova consulta</a></li>
@@ -32,19 +32,18 @@
                                     Nova especialidade
                                 </h3>
                                 <hr />
-                                <form method="post" action="{{empty($categoria) ? '/categorias/store' : '/categorias/update/'.$categoria->id}}">
+                                <form  action="/especialidade/create" method="post">
                                     @csrf
                                     <div class="form-group">
                                         <label class="text-secondary">Dados da especialidade:</label>
-                                        <input type="text" name="nome_categoria" value="{{empty($categoria) ? '': $categoria->nome_categoria}}" class="form-control" placeholder="Nome da especialidade">
-                                        {{$errors->has('nome_categoria') ? $errors->first('nome_categoria') : ''}}
+                                        <input type="text" name="nome_especialidade" value="" class="form-control" placeholder="Nome da especialidade">
                                     </div>
                                     <input type="submit" class="btn btn-success" value="Cadastrar">
                                 </form>
                             </div>
                         </div>
                     </div>
-                </div>           
+                </div>
                 <div class="col-sm-9 tabela">
                     <div class="container pagina">
                         <div class="row">
@@ -60,14 +59,22 @@
                                             <th>Editar</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th></th>
-                                            <td></td>
-                                            <td><a class="fas fa-trash-alt fa-lg text-danger" href=""></a></td>
-                                            <td><a class="fas fa-edit fa-lg text-info"  href=""></a></td>
-                                        </tr>
-                                    </tbody>	
+                                   <tbody>
+                                        @foreach ($especialidades as $especialidade )
+                                            <tr>
+                                                <th>{{$especialidade->id}}</th>
+                                                <td>{{$especialidade->especialidade}}</td>
+                                                @if($especialidade == "")
+                                                    <td></td>
+                                                    <td></td>
+                                                @else
+                                                    <td><a class="fas fa-trash-alt fa-lg text-danger" href=""></a></td>
+                                                    <td><a class="fas fa-edit fa-lg text-info"  href=""></a></td>
+                                                @endif
+
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
                                 </table>
                             </div>
                         </div>

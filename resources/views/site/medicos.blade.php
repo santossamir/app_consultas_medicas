@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col-sm-3 menu">
                     <ul class="list-group">
-                        <li class="list-group-item"><a href="/home">Especialidades</a></li>
+                        <li class="list-group-item"><a href="/">Especialidades</a></li>
                         <li class="list-group-item active"><a href="/medicos">Nossos médicos</a></li>
                         <li class="list-group-item"><a href="/pacientes">Pacientes</a></li>
                         <li class="list-group-item"><a href="/nova-consulta">Nova consulta</a></li>
@@ -32,20 +32,20 @@
                                     Novo médico
                                 </h3>
                                 <hr />
-                                <form method="post" action="{{empty($categoria) ? '/categorias/store' : '/categorias/update/'.$categoria->id}}">
+                                <form method="post" action="/medicos/create">
                                     @csrf
                                     <div class="form-group">
                                         <label class="text-secondary">Dados do médico:</label>
-                                        <input type="text" name="nome_categoria" value="" class="form-control" placeholder="Nome do médico">
-                                        <input type="text" name="nome_categoria" value="" class="form-control" placeholder="Especialidade">
-                                        <input type="text" name="nome_categoria" value="" class="form-control" placeholder="CRM">
+                                        <input type="text" name="name" value="" class="form-control" placeholder="Nome do médico">
+                                        <input type="text" name="especialidade" value="" class="form-control" placeholder="Especialidade">
+                                        <input type="text" name="crm" value="" class="form-control" placeholder="CRM">
                                     </div>
                                     <input type="submit" class="btn btn-success" value="Cadastrar">
                                 </form>
                             </div>
                         </div>
                     </div>
-                </div>           
+                </div>
                 <div class="col-sm-9 tabela">
                     <div class="container pagina">
                         <div class="row">
@@ -63,14 +63,22 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th></th>
-                                            <td></td>
-                                            <td></td>
-                                            <td><a class="fas fa-trash-alt fa-lg text-danger" href=""></a></td>
-                                            <td><a class="fas fa-edit fa-lg text-info"  href=""></a></td>
-                                        </tr>
-                                    </tbody>	
+                                        @foreach ($medicos as $medico )
+                                            <tr>
+                                                <th>{{$medico->crm}}</th>
+                                                <td>{{$medico->name}}</td>
+                                                <td>{{$medico->especialidade_id}}</td>
+
+                                                @if ($medico == "")
+                                                    <td></td>
+                                                    <td></td>
+                                                @else
+                                                    <td><a class="fas fa-trash-alt fa-lg text-danger" href=""></a></td>
+                                                    <td><a class="fas fa-edit fa-lg text-info"  href=""></a></td>
+                                                @endif
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
