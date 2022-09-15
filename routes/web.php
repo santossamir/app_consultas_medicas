@@ -11,7 +11,7 @@ Route::post('/especialidade/create', 'EspecialidadeController@create');
 Route::get('/medicos', 'MedicoController@index')->name('index/medicos');
 Route::post('/medicos/create', 'MedicoController@create');
 
-Route::get('/pacientes', 'PacienteController@index');
+Route::get('/pacientes', 'PacienteController@index')->name('index/pacientes');
 Route::post('/pacientes/create', 'PacienteController@create');
 
 Route::get('/nova-consulta', 'NovaConsultaController@index');

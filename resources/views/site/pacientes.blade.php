@@ -36,14 +36,14 @@
                                     @csrf
                                     <div class="form-group">
                                         <label class="text-secondary">Dados do paciente:</label>
-                                        <input type="text" name="nome_paciente" value="" class="form-control" placeholder="Nome do paciente">
+                                        <input type="text" name="nome" value="" class="form-control" placeholder="Nome do paciente">
                                         <input type="text" name="cpf" value="" class="form-control" placeholder="CPF">
                                         <input type="text" name="nascimento" value="" class="form-control" placeholder="Data de nascimento">
                                         <input type="text" name="contato" value="" class="form-control" placeholder="Contato">
                                         <input type="text" name="email" value="" class="form-control" placeholder="E-mail">
                                         <input type="text" name="cep" value="" class="form-control" placeholder="CEP">
                                         <input type="text" name="endereco" value="" class="form-control" placeholder="Endereço">
-                                        <input type="text" name="numero" value="" class="form-control" placeholder="nº">
+                                        <input type="text" name="num" value="" class="form-control" placeholder="nº">
                                     </div>
                                     <input type="submit" class="btn btn-success" value="Cadastrar">
                                 </form>
@@ -64,7 +64,6 @@
                                             <th>CPF</th>
                                             <th>Contato</th>
                                             <th>E-mail</th>
-                                            <th>Endereço</th>
                                             <th>CEP</th>
                                             <th>nº</th>
                                             <th>Excluir</th>
@@ -72,17 +71,24 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td><a class="fas fa-trash-alt fa-lg text-danger" href=""></a></td>
-                                            <td><a class="fas fa-edit fa-lg text-info"  href=""></a></td>
-                                        </tr>
+                                        @foreach ($pacientes as $paciente )
+                                            <tr>
+                                                    <td>{{$paciente->nome}}</td>
+                                                    <td>{{$paciente->cpf}}</td>
+                                                    <td>{{$paciente->contato}}</td>
+                                                    <td>{{$paciente->email}}</td>
+                                                    <td>{{$paciente->cep}}</td>
+                                                    <td>{{$paciente->num}}</td>
+                                                @if($paciente == "")
+                                                    <td></td>
+                                                    <td></td>
+                                                @else
+                                                    <td><a class="fas fa-trash-alt fa-lg text-danger" href=""></a></td>
+                                                    <td><a class="fas fa-edit fa-lg text-info"  href=""></a></td>
+                                                @endif
+
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
