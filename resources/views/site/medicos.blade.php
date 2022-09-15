@@ -37,7 +37,15 @@
                                     <div class="form-group">
                                         <label class="text-secondary">Dados do médico:</label>
                                         <input type="text" name="name" value="" class="form-control" placeholder="Nome do médico">
-                                        <input type="text" name="especialidade" value="" class="form-control" placeholder="Especialidade">
+                                        {{--<input type="text" name="especialidade" value="" class="form-control" placeholder="Especialidade">--}}
+                                        <select name="especialidade_id" class="form-control text-secondary" id="select">
+                                            <option>Especialidades</option>
+
+                                            @foreach ($especialidades as $especialidade)
+                                                <option  value="{{$especialidade->id}}">{{$especialidade->especialidade}}</option>
+                                            @endforeach
+
+                                        </select>
                                         <input type="text" name="crm" value="" class="form-control" placeholder="CRM">
                                     </div>
                                     <input type="submit" class="btn btn-success" value="Cadastrar">
@@ -67,7 +75,7 @@
                                             <tr>
                                                 <th>{{$medico->crm}}</th>
                                                 <td>{{$medico->name}}</td>
-                                                <td>{{$medico->especialidade_id}}</td>
+                                                <td>{{$medico->especialidade}}</td>
 
                                                 @if ($medico == "")
                                                     <td></td>

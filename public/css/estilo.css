@@ -11,9 +11,15 @@
 	padding:25px !important;
 }
 
-.form-group input{
+.form-group input, #select {
 	margin-bottom: 10px;;
 }
+
+#select{
+    font-size: 18px;
+    letter-spacing: 0.2px;
+}
+
 
 li a {
 	color: #495057;
@@ -38,7 +44,7 @@ li.list-group-item.active {
 }
 
 span{
-    margin-left: 5px;	
+    margin-left: 5px;
     background: -webkit-linear-gradient( #319231, #4aac4a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
