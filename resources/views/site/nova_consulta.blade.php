@@ -36,9 +36,25 @@
                                     @csrf
                                     <div class="form-group">
                                         <label class="text-secondary">Dados do médico:</label>
-                                        <input type="text" name="nome_paciente" value="" class="form-control" placeholder="Nome do paciente">
-                                        <input type="text" name="nome_medico" value="" class="form-control" placeholder="Nome do médico">
-                                        <input type="text" name="data_hora" value="" class="form-control" placeholder="Data/hora da consulta">
+                                        <select name="paciente_id" class="form-control text-secondary" id="select">
+                                            <option>Pacientes</option>
+
+                                            @foreach ($pacientes as $paciente)
+                                                <option  value="{{$paciente->id}}">{{$paciente->nome}}</option>
+                                            @endforeach
+
+                                        </select>
+
+                                        <select name="medico_id" class="form-control text-secondary" id="select">
+                                            <option>Medicos</option>
+
+                                            @foreach ($medicos as $medico)
+                                                <option  value="{{$medico->id}}">{{$medico->name}}</option>
+                                            @endforeach
+
+                                        </select>
+
+                                        <input type="text" name="agendamento" value="" class="form-control" placeholder="Data/hora da consulta">
                                     </div>
                                     <input type="submit" class="btn btn-success" value="Cadastrar">
                                 </form>
@@ -55,25 +71,28 @@
                                 <table class="table table-borderless">
                                     <thead class="text-secondary">
                                         <tr>
-                                            <th>ID</th>
                                             <th>Paciente</th>
                                             <th>Médico</th>
-                                            <th>Data/hora consulta</th>
-                                            <th>Data/hora agendamento</th>
+                                            <th>Agendamento</th>
                                             <th>Excluir</th>
                                             <th>Editar</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th></th>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td><a class="fas fa-trash-alt fa-lg text-danger" href=""></a></td>
-                                            <td><a class="fas fa-edit fa-lg text-info"  href=""></a></td>
-                                        </tr>
+                                        @foreach ($consultas as $consulta)
+                                            <tr>
+                                                <th>{{$consulta->nome}}</th>
+                                                <td>{{$consulta->name}}</td>
+                                                <td>{{$consulta->agendamento}}</td>
+                                                @if($consulta == "")
+                                                    <td></td>
+                                                    <td></td>
+                                                @else
+                                                    <td><a class="fas fa-trash-alt fa-lg text-danger" href=""></a></td>
+                                                    <td><a class="fas fa-edit fa-lg text-info"  href=""></a></td>
+                                                @endif
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
