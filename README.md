@@ -1,7 +1,7 @@
 # app_concultas_medicas
 Nesse projeto foi desenvolvido um sistema de marcação de consultas.
 Para isso elaboramos o cadastro das especialidades, dos médicos e dos pacientes.
-Em seguida um forma para as consultas, em que temos a disponibilidade dos
+Em seguida um formulário para as consultas, em que temos a disponibilidade dos
 médicos e dos pacientes já cadastrados. Para o frontend, fizemos uso do
 HTML, CSS e Bootstrap, e no backend, que era o nosso foco, utilizamos o
 PHP, Laravel e o banco de dados MySQL.
